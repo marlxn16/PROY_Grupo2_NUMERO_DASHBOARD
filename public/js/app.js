@@ -28,7 +28,29 @@ btn_agregar.addEventListener('click', function(event){
 
 
 //Ciclo FOR
+// Calcular estadisticas con FOR
+function calcularEstadisticas(){
+    let suma = 0;
+    let aprobados = 0;
+    let reprobados = 0;
 
+    for(let i = 0; i < estudiantes.length; i++){
+        suma += estudiantes[i].nota;
+
+        if(estudiantes[i].nota >= 14){
+            aprobados++;
+        } else {
+            reprobados++;
+        }
+    }
+
+    let promedio = estudiantes.length > 0 ? (suma / estudiantes.length).toFixed(2) : 0;
+
+    document.getElementById('txt_total').innerHTML = estudiantes.length;
+    document.getElementById('txt_promedio').innerHTML = promedio;
+    document.getElementById('txt_aprobados').innerHTML = aprobados;
+    document.getElementById('txt_reprobados').innerHTML = reprobados;
+}
 
 
 // Generar reporte con DO...WHILE
